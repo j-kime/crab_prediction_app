@@ -1,0 +1,60 @@
+#:import utils kivy.utils
+
+
+<HomeScreen>:
+    # FOR OVERALL LAYOUT OF THE SCREEN
+    FloatLayout:
+        # SETS BACKGROUND COLOUR
+        canvas:
+            Color: 
+                rgb: utils.get_color_from_hex("#39B3F2")
+            Rectangle:
+                size: self.size
+                pos: self.pos
+        # FOR THE TOP BANNER
+        GridLayout:
+            rows: 1
+            pos_hint: {"top": 1, "left": 1}
+            size_hint: 1, 0.1
+            Label:
+                text: "Crab Age Prediction App"
+        # CURRENTLY A PLACE HOLDER TO BE USED AS A NAVIGATION MENU
+        GridLayout:
+            rows: 1
+            pos_hint: {"top": 0.9, "left": 1}
+            size_hint: 1, 0.2
+            Image:
+                source: "/Users/joshkime/Documents/Python/Crab Project - Machine Learning/kv/images/automation_python_badge.png"
+            Image:
+                source: "/Users/joshkime/Documents/Python/Crab Project - Machine Learning/kv/images/data_analytics_badge.png"
+        # CURRENTLY THE MAIN MENU FOR NAVIGATING
+        ScrollView:
+            pos_hint: {"top": 0.6, "center_x": 0.5}
+            size_hint: 0.9, 0.4
+            GridLayout:
+                cols: 1
+                size_hint_y: None
+                height: self.minimum_height
+                row_default_height: '100dp'
+                row_force_default: True
+                # Where the main buttons will go 
+                Button:
+                    text: "Start"
+                    on_release:
+                        app.change_screen("input_screen")
+                Button:
+                    text: "Add new database"
+                Button:
+                    text: "Change units"
+        # SETTINGS ICON, NEEDS TO BE MADE SMALLER
+        GridLayout:
+            rows: 1
+            pos_hint: {"top": 0.2, "left": 1}
+            size_hint: 1, 0.2
+            # Bottom info such as copyright etc
+            ImageButton:
+                source: "/Users/joshkime/Documents/Python/Crab Project - Machine Learning/kv/images/Settings-icon-symbol-vector.png"
+                on_release: 
+                    app.change_screen("settings_screen")
+        
+
